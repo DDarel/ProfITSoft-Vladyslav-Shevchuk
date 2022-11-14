@@ -1,6 +1,6 @@
 package org.example.Shapes;
 
-public interface Shapes extends Comparable<Shapes> {
+public interface Shape extends Comparable<Shape> {
     double volume();
     String getName();
 

@@ -1,32 +1,35 @@
 package org.example.Shapes;
 
-public class Pyramid_4 implements Shapes{
-    protected int pyramid_4_side;
-    protected int pyramid_4_high;
+public class PyramidFour implements Shape {
 
-    public Pyramid_4(int pyramid_4_side, int pyramid_4_high) {
-        this.pyramid_4_side = pyramid_4_side;
-        this.pyramid_4_high = pyramid_4_high;
+    protected double pyramid_four_side;
+
+    protected double pyramid_four_high;
+
+    public PyramidFour(double pyramid_four_side, double pyramid_four_high) {
+        this.pyramid_four_side = pyramid_four_side;
+        this.pyramid_four_high = pyramid_four_high;
     }
 
     @Override
     public double volume(){
-        return pyramid_4_side*pyramid_4_side*pyramid_4_high/3;
+        return pyramid_four_side*pyramid_four_side*pyramid_four_high/3;
     }
 
     @Override
     public String getName(){
-        return "Pyramid_4";
+        return "PyramidFour";
     }
 
     @Override
-    public int compareTo(Shapes shape) {
+    public int compareTo(Shape shape) {
         if (this.volume() - shape.volume() < 0) {
             return -1;
         } else if (this.volume() - shape.volume() > 0) {
             return 1;
         } else return 0;
     }
+
     @Override
     public boolean equals(Object o) {
 
@@ -34,11 +37,11 @@ public class Pyramid_4 implements Shapes{
             return true;
         }
 
-        if (!(o instanceof Shapes)) {
+        if (!(o instanceof Shape)) {
             return false;
         }
 
-        Shapes c = (Shapes) o;
+        Shape c = (Shape) o;
 
         return Double.compare(this.volume(), c.volume()) == 0;
     }

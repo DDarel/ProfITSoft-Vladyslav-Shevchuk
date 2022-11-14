@@ -1,10 +1,12 @@
 package org.example.Shapes;
 
-public class Cylinder implements Shapes{
-    protected int cylinder_radius;
-    protected int cylinder_high;
+public class Cylinder implements Shape {
 
-    public Cylinder(int cylinder_radius, int cylinder_high) {
+    protected double cylinder_radius;
+
+    protected double cylinder_high;
+
+    public Cylinder(double cylinder_radius, double cylinder_high) {
         this.cylinder_radius = cylinder_radius;
         this.cylinder_high = cylinder_high;
     }
@@ -16,13 +18,14 @@ public class Cylinder implements Shapes{
     public String getName(){return "Cylinder";}
 
     @Override
-    public int compareTo(Shapes shape) {
+    public int compareTo(Shape shape) {
         if (this.volume() - shape.volume() < 0) {
             return -1;
         } else if (this.volume() - shape.volume() > 0) {
             return 1;
         } else return 0;
     }
+
     @Override
     public boolean equals(Object o) {
 
@@ -30,11 +33,11 @@ public class Cylinder implements Shapes{
             return true;
         }
 
-        if (!(o instanceof Shapes)) {
+        if (!(o instanceof Shape)) {
             return false;
         }
 
-        Shapes c = (Shapes) o;
+        Shape c = (Shape) o;
 
         return Double.compare(this.volume(), c.volume()) == 0;
     }

@@ -1,9 +1,9 @@
 package org.example.Shapes;
 
-public class Cube implements Shapes{
-    protected int cube_side;
+public class Cube implements Shape {
+    protected double cube_side;
 
-    public Cube(int cube_side) {
+    public Cube(double cube_side) {
         this.cube_side = cube_side;
     }
 
@@ -14,13 +14,14 @@ public class Cube implements Shapes{
     public String getName(){return "Cube";}
 
     @Override
-    public int compareTo(Shapes shape) {
+    public int compareTo(Shape shape) {
         if (this.volume() - shape.volume() < 0) {
             return -1;
         } else if (this.volume() - shape.volume() > 0) {
             return 1;
         } else return 0;
     }
+
     @Override
     public boolean equals(Object o) {
 
@@ -28,11 +29,11 @@ public class Cube implements Shapes{
             return true;
         }
 
-        if (!(o instanceof Shapes)) {
+        if (!(o instanceof Shape)) {
             return false;
         }
 
-        Shapes c = (Shapes) o;
+        Shape c = (Shape) o;
 
         return Double.compare(this.volume(), c.volume()) == 0;
     }

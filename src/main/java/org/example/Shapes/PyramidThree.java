@@ -1,32 +1,35 @@
 package org.example.Shapes;
 
-public class Pyramid_3 implements Shapes{
-    protected int pyramid_3_side;
-    protected int pyramid_3_high;
+public class PyramidThree implements Shape {
 
-    public Pyramid_3(int pyramid_3_side, int pyramid_3_high) {
-        this.pyramid_3_side = pyramid_3_side;
-        this.pyramid_3_high = pyramid_3_high;
+    protected double pyramid_three_side;
+
+    protected double pyramid_three_high;
+
+    public PyramidThree(double pyramid_three_side, double pyramid_three_high) {
+        this.pyramid_three_side = pyramid_three_side;
+        this.pyramid_three_high = pyramid_three_high;
     }
 
     @Override
     public double volume(){
-        return pyramid_3_side*pyramid_3_side*pyramid_3_high/(4*1.73205080757);
+        return pyramid_three_side*pyramid_three_side*pyramid_three_high/(4*1.73205080757);
     }
 
     @Override
     public String getName(){
-        return "Pyramid_3";
+        return "PyramidThree";
     }
 
     @Override
-    public int compareTo(Shapes shape) {
+    public int compareTo(Shape shape) {
         if (this.volume() - shape.volume() < 0) {
             return -1;
         } else if (this.volume() - shape.volume() > 0) {
             return 1;
         } else return 0;
     }
+
     @Override
     public boolean equals(Object o) {
 
@@ -34,11 +37,11 @@ public class Pyramid_3 implements Shapes{
             return true;
         }
 
-        if (!(o instanceof Shapes)) {
+        if (!(o instanceof Shape)) {
             return false;
         }
 
-        Shapes c = (Shapes) o;
+        Shape c = (Shape) o;
 
         return Double.compare(this.volume(), c.volume()) == 0;
     }

@@ -1,11 +1,14 @@
 package org.example.Shapes;
 
-public class Parallelepiped implements Shapes{
-    protected int parallelepiped_width_side;
-    protected int parallelepiped_long_side;
-    protected int parallelepiped_high_side;
+public class Parallelepiped implements Shape {
 
-    public Parallelepiped(int parallelepiped_width_side, int parallelepiped_long_side, int parallelepiped_high_side) {
+    protected double parallelepiped_width_side;
+
+    protected double parallelepiped_long_side;
+
+    protected double parallelepiped_high_side;
+
+    public Parallelepiped(double parallelepiped_width_side, double parallelepiped_long_side, double parallelepiped_high_side) {
         this.parallelepiped_width_side = parallelepiped_width_side;
         this.parallelepiped_long_side = parallelepiped_long_side;
         this.parallelepiped_high_side = parallelepiped_high_side;
@@ -22,13 +25,14 @@ public class Parallelepiped implements Shapes{
     }
 
     @Override
-    public int compareTo(Shapes shape) {
+    public int compareTo(Shape shape) {
         if (this.volume() - shape.volume() < 0) {
             return -1;
         } else if (this.volume() - shape.volume() > 0) {
             return 1;
         } else return 0;
     }
+
     @Override
     public boolean equals(Object o) {
 
@@ -36,11 +40,11 @@ public class Parallelepiped implements Shapes{
             return true;
         }
 
-        if (!(o instanceof Shapes)) {
+        if (!(o instanceof Shape)) {
             return false;
         }
 
-        Shapes c = (Shapes) o;
+        Shape c = (Shape) o;
 
         return Double.compare(this.volume(), c.volume()) == 0;
     }

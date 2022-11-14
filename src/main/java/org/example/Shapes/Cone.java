@@ -1,10 +1,11 @@
 package org.example.Shapes;
 
-public class Cone implements Shapes{
-    protected int cone_radius;
-    protected int cone_high;
+public class Cone implements Shape {
+    protected double cone_radius;
 
-    public Cone(int cone_radius, int cone_high) {
+    protected double cone_high;
+
+    public Cone(double cone_radius, double cone_high) {
         this.cone_radius = cone_radius;
         this.cone_high = cone_high;
     }
@@ -20,13 +21,14 @@ public class Cone implements Shapes{
     }
 
     @Override
-    public int compareTo(Shapes shape) {
+    public int compareTo(Shape shape) {
         if (this.volume() - shape.volume() < 0) {
             return -1;
         } else if (this.volume() - shape.volume() > 0) {
             return 1;
         } else return 0;
     }
+
     @Override
     public boolean equals(Object o) {
 
@@ -34,11 +36,11 @@ public class Cone implements Shapes{
             return true;
         }
 
-        if (!(o instanceof Shapes)) {
+        if (!(o instanceof Shape)) {
             return false;
         }
 
-        Shapes c = (Shapes) o;
+        Shape c = (Shape) o;
 
         return Double.compare(this.volume(), c.volume()) == 0;
     }

@@ -1,9 +1,10 @@
 package org.example.Shapes;
 
-public class Sphere implements Shapes {
-    protected int sphere_radius;
+public class Sphere implements Shape {
 
-    public Sphere(int sphere_radius) {
+    protected double sphere_radius;
+
+    public Sphere(double sphere_radius) {
         this.sphere_radius = sphere_radius;
     }
 
@@ -18,13 +19,14 @@ public class Sphere implements Shapes {
     }
 
     @Override
-    public int compareTo(Shapes shape) {
+    public int compareTo(Shape shape) {
         if (this.volume() - shape.volume() < 0) {
             return -1;
         } else if (this.volume() - shape.volume() > 0) {
             return 1;
         } else return 0;
     }
+
     @Override
     public boolean equals(Object o) {
 
@@ -32,11 +34,11 @@ public class Sphere implements Shapes {
             return true;
         }
 
-        if (!(o instanceof Shapes)) {
+        if (!(o instanceof Shape)) {
             return false;
         }
 
-        Shapes c = (Shapes) o;
+        Shape c = (Shape) o;
 
         return Double.compare(this.volume(), c.volume()) == 0;
     }
